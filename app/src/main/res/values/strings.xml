@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">RatDatabase3</string>
+    <string name="app_name">Rat Database</string>
+    <string name="rat_details">RAT DETAILS</string>
+    <string name="save">SAVE</string>
+    <string name="delete">DELETE</string>
+    <string name="subject_id">Subject ID</string>
+    <string name="bodyweight">Bodyweight (g)</string>
+    <string name="notes">Notes</string>
+    <string name="blank"> </string>
 </resources>

@@ -32,7 +32,7 @@ public class RatDetailActivity extends AppCompatActivity {
         subjectEditText = findViewById(R.id.subjectEditText);
         weightEditText = findViewById(R.id.weightEditText);
         notesEditText = findViewById(R.id.notesEditText);
-        deleteButton = findViewById(R.id.deletedRatButton);
+        deleteButton = findViewById(R.id.deleteRatButton);
     }
 
     private void checkForEditRat() {
@@ -58,7 +58,7 @@ public class RatDetailActivity extends AppCompatActivity {
         String subject = String.valueOf(subjectEditText.getText());
         String weight = String.valueOf(weightEditText.getText());
         String notes = String.valueOf(notesEditText.getText());
-        String added = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
+        String added = new SimpleDateFormat("dd-MM-yy").format(new Date());
 
         if(selectedRat == null) {
             int id = Rat.ratArrayList.size();

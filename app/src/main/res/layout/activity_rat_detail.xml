@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/c3Beige"
     tools:context=".RatDetailActivity">
 
         <androidx.appcompat.widget.Toolbar
@@ -14,56 +14,47 @@
             android:layout_height="wrap_content"
             android:minHeight="?actionBarSize"
             android:theme="?actionBarTheme"
-            android:background="@color/darkGray">
+            android:background="@color/c6Red">
 
             <TextView
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text="RATS"
+                android:text="@string/rat_details"
                 android:textSize="35sp"
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 android:layout_gravity="center"/>
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="SAVE"
-                android:textSize="25sp"
-                android:backgroundTint="@color/white"
-                android:textColor="@color/darkGray"
-                android:textStyle="bold"
-                android:layout_gravity="end"
-                android:onClick="saveRat"/>
 
         </androidx.appcompat.widget.Toolbar>
 
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="Subject ID"
+        android:text="@string/subject_id"
         android:textSize="25sp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="30dp"
         android:textColor="@color/darkGray"
         android:textStyle="bold"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center" />
 
     <EditText
         android:id="@+id/subjectEditText"
         android:layout_width="100dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:textSize="25sp"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="10dp"
         android:textColor="@color/darkGray"
         android:maxLines="1"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:inputType="none"/>
 
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="Weight"
+        android:text="@string/bodyweight"
         android:textSize="25sp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:textColor="@color/darkGray"
         android:textStyle="bold"
         android:layout_gravity="center"/>
@@ -71,19 +62,21 @@
     <EditText
         android:id="@+id/weightEditText"
         android:layout_width="100dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:textSize="25sp"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="10dp"
         android:textColor="@color/darkGray"
         android:maxLines="1"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:inputType="number"
+        android:textAlignment="center" />
 
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="Notes"
+        android:text="@string/notes"
         android:textSize="25sp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:textColor="@color/darkGray"
         android:textStyle="bold"
         android:layout_gravity="center"/>
@@ -93,23 +86,50 @@
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:textSize="25sp"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="10dp"
         android:textColor="@color/darkGray"
-        android:minLines="3"
-        android:layout_gravity="center"/>
+        android:maxLines="3"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:inputType="none"/>
 
     <Button
-        android:id="@+id/deletedRatButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="DELETE"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:backgroundTint="@color/c8Green"
+        android:onClick="saveRat"
+        android:text="@string/save"
+        android:textColor="@color/offWhite"
         android:textSize="25sp"
-        android:backgroundTint="@color/white"
-        android:textColor="@color/red"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/deleteRatButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/delete"
+        android:textSize="25sp"
+        android:backgroundTint="@color/c6Red"
+        android:textColor="@color/offWhite"
         android:textStyle="bold"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:onClick="deleteRat"/>
+
+
+   <!-- <ImageView
+        android:id="@+id/peekingRat"
+        android:layout_width="match_parent"
+        android:layout_height="359dp"
+        android:adjustViewBounds="true"
+        android:maxHeight="100dp"
+        android:maxWidth="100dp"
+        android:layout_marginTop="-30dp"
+        android:scaleType="fitXY"
+        android:visibility="visible"
+        app:srcCompat="@drawable/rat_peeking"/>-->
 
 
 </LinearLayout>

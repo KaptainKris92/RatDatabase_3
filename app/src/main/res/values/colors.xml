@@ -9,5 +9,22 @@
     <color name="white">#FFFFFFFF</color>
     <color name="darkGray">#2C2F33</color>
     <color name="red">#F00</color>
-
+    <color name="blue1">#034C81</color>
+    <color name="blue2">#2CA3FA</color>
+    <color name="blue3">#5BA2F4</color>
+    <color name="brown1">#7F858C</color>
+    <color name="brown2">#C9BBAA</color>
+    <color name="offWhite">#ffffff</color>
+    <color name="c1Blue">#097392</color>
+    <color name="c2Aqua">#83B4B3</color>
+    <color name="c3Beige">#FFF0CE</color>
+    <color name="c4Orange">#D55534</color>
+    <color name="c5Black">#383838</color>
+    <color name="c6Red">#75261E</color>
+    <color name="c7Red">#8C3F39</color>
+    <color name="c8Green">#73AC39</color>
+    <color name="c9Yellow">#E8E46E</color>
+    <color name="c10Orange">#F3C583</color>
+    <color name="c11Red">#FA5258</color>
+    <color name="c12LightGray">#979797</color>
 </resources>

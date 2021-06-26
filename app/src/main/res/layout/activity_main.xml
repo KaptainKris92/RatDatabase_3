@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/c3Beige"
     tools:context=".MainActivity">
 
     <androidx.appcompat.widget.Toolbar
@@ -14,26 +15,30 @@
         android:layout_height="wrap_content"
         android:minHeight="?actionBarSize"
         android:theme="?actionBarTheme"
-        android:background="@color/darkGray">
+        android:background="@color/c6Red">
 
         <TextView
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:text="RAT DATABASE"
-            android:textSize="35sp"
+            android:text="RAT BODYWEIGHTS"
+            android:textSize="30sp"
             android:textColor="@color/white"
             android:textStyle="bold"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:layout_marginRight="20dp"
+            />
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
-            android:text="+"
-            android:textSize="35sp"
-            android:textColor="@color/white"
-            android:textStyle="bold"
             android:layout_gravity="end"
-            android:onClick="newRat"/>
+            android:backgroundTint="@color/c8Green"
+            android:onClick="newRat"
+            android:text="+"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:layout_marginRight="10dp"/>
         
     </androidx.appcompat.widget.Toolbar>
 
