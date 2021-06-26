@@ -93,11 +93,12 @@
         android:textAlignment="center"
         android:inputType="none"/>
 
-    <com.google.android.material.button.MaterialButton
+    <Button
+        android:id="@+id/saveButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="100dp"
         android:backgroundTint="@color/c8Green"
         android:onClick="saveRat"
         android:text="@string/save"
@@ -115,21 +116,10 @@
         android:textColor="@color/offWhite"
         android:textStyle="bold"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="50dp"
         android:onClick="deleteRat"/>
 
 
-   <!-- <ImageView
-        android:id="@+id/peekingRat"
-        android:layout_width="match_parent"
-        android:layout_height="359dp"
-        android:adjustViewBounds="true"
-        android:maxHeight="100dp"
-        android:maxWidth="100dp"
-        android:layout_marginTop="-30dp"
-        android:scaleType="fitXY"
-        android:visibility="visible"
-        app:srcCompat="@drawable/rat_peeking"/>-->
 
 
 </LinearLayout>

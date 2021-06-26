@@ -7,7 +7,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/c3Beige"
-    tools:context=".MainActivity">
+    android:backgroundTintMode="src_over"
+    tools:context=".BodyweightActivity">
 
     <androidx.appcompat.widget.Toolbar
 
@@ -29,6 +30,7 @@
             />
 
         <Button
+            android:id="@+id/add_rat"
             android:layout_width="45dp"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
