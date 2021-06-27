@@ -18,6 +18,9 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.channels.FileChannel;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 public class BodyweightActivity extends AppCompatActivity {
@@ -110,15 +113,17 @@ public class BodyweightActivity extends AppCompatActivity {
             destination.close();
             Toast.makeText(this, "Rat table exported as .xls file", Toast.LENGTH_LONG).show();
 
+            Calendar cal = Calendar.getInstance();
+            DateFormat sdf = new SimpleDateFormat("dd/MM/yy");
+            String currentTime = sdf.format(cal.getTime());
+
             Intent emailIntent = new Intent(Intent.ACTION_SEND);
             emailIntent.setType("message/rfc822");
             emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{"krisadamatzky@yahoo.co.uk"});
-            emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Today's rat information");
-
-            emailIntent.putExtra(Intent.EXTRA_TEXT, "Rat database for " + "today" + " is attached");
+            emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Rat database for " + currentTime);
+            emailIntent.putExtra(Intent.EXTRA_TEXT, "The rat database exported on " + currentTime + " is attached");
 
             emailIntent.putExtra(Intent.EXTRA_STREAM, FileProvider.getUriForFile(this, this.getApplicationContext().getPackageName() + ".provider", ratXLS));
-
             emailIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
             startActivity(Intent.createChooser(emailIntent, "Select App"));
 
