@@ -17,7 +17,7 @@ import java.text.SimpleDateFormat;
 public class SQLiteManager extends SQLiteOpenHelper {
 
     private static SQLiteManager sqLiteManager;
-    private static final String DATABASE_NAME = "RatDB";
+    public static final String DATABASE_NAME = "RatDB";
     private static final int DATABASE_VERSION = 3;
     private static final String TABLE_NAME = "Rat3";
     private static final String COUNTER = "Counter";
@@ -45,7 +45,13 @@ public class SQLiteManager extends SQLiteOpenHelper {
         return sqLiteManager;
     }
 
-    public void onCreate(SQLiteDatabase sqLiteDatabase)
+    @Override
+    public void onOpen(SQLiteDatabase db) {
+        db.disableWriteAheadLogging();  // Here the solution
+        super.onOpen(db);
+    }
+
+    public void onCreate(SQLiteDatabase db)
     {
         StringBuilder sql;
         sql = new StringBuilder()
@@ -67,7 +73,8 @@ public class SQLiteManager extends SQLiteOpenHelper {
                 .append(DELETED_FIELD)
                 .append(" TEXT)");
 
-        sqLiteDatabase.execSQL(sql.toString());
+        db.execSQL(sql.toString());
+        db.disableWriteAheadLogging();
     }
 
     @Override
@@ -78,6 +85,7 @@ public class SQLiteManager extends SQLiteOpenHelper {
         // Create tables again
         onCreate(db);
     }
+
 
     public void addRatToDatabase (Rat rat)
     {
@@ -147,5 +155,7 @@ public class SQLiteManager extends SQLiteOpenHelper {
         }
 
     }
+
+
 
 }

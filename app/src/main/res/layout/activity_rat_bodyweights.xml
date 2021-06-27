@@ -18,6 +18,18 @@
         android:theme="?actionBarTheme"
         android:background="@color/c6Red">
 
+        <Button
+            android:id="@+id/exportTable"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_gravity="left"
+            android:backgroundTint="@color/c8Green"
+            android:text="Export"
+            android:textColor="@color/offWhite"
+            android:textSize="15dp"
+            android:onClick="exportTable"
+            />
+
         <TextView
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
@@ -26,8 +38,10 @@
             android:textColor="@color/white"
             android:textStyle="bold"
             android:layout_gravity="center"
-            android:layout_marginRight="20dp"
+            android:layout_marginLeft="50dp"
             />
+
+
 
         <Button
             android:id="@+id/add_rat"
@@ -41,20 +55,55 @@
             android:textSize="25sp"
             android:textStyle="bold"
             android:layout_marginRight="15dp"/>
-        
+
+
+
     </androidx.appcompat.widget.Toolbar>
+
+    <TableRow
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_gravity="left">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Subject"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:textColor="@color/darkGray"
+        android:paddingLeft="15dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bodyweight (g)"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/darkGray"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_marginLeft="30dp"
+            android:textColor="@color/darkGray"/>
+
+   />
+
+    </TableRow>
 
     <ListView
         android:id="@+id/ratListView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="3dp"
-        android:dividerHeight="3dp"
-        android:divider="@color/darkGray"/>
-
-
-
-
+        android:divider="@color/darkGray"
+        android:dividerHeight="2dp" />
 
 
 </LinearLayout>
+
