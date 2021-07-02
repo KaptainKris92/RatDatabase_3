@@ -8,6 +8,7 @@ import android.os.Environment;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 
@@ -17,9 +18,11 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.nio.channels.FileChannel;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -27,7 +30,6 @@ public class BodyweightActivity extends AppCompatActivity {
 
     private static final String EMAIL = "krisadamatzky@yahoo.co.uk" ;
     private ListView ratListView;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,7 @@ public class BodyweightActivity extends AppCompatActivity {
     private void initWidgets()
     {
         ratListView = findViewById(R.id.ratListView);
+
     }
 
     private void loadFromDBToMemory() {
@@ -114,7 +117,7 @@ public class BodyweightActivity extends AppCompatActivity {
             Toast.makeText(this, "Rat table exported as .xls file", Toast.LENGTH_LONG).show();
 
             Calendar cal = Calendar.getInstance();
-            DateFormat sdf = new SimpleDateFormat("dd/MM/yy");
+            DateFormat sdf = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
             String currentTime = sdf.format(cal.getTime());
 
             Intent emailIntent = new Intent(Intent.ACTION_SEND);

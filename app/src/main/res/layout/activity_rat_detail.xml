@@ -16,14 +16,40 @@
             android:theme="?actionBarTheme"
             android:background="@color/c6Red">
 
+            <Button
+                android:id="@+id/prevButton"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:backgroundTint="@color/black"
+                android:text="Prev"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_marginRight="15dp" />
+
             <TextView
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:text="@string/rat_details"
-                android:textSize="35sp"
+                android:textSize="25sp"
                 android:textColor="@color/white"
                 android:textStyle="bold"
                 android:layout_gravity="center"/>
+
+            <Button
+                android:id="@+id/nextButton"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:backgroundTint="@color/black"
+                android:text="Next"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_marginRight="15dp"
+                />
+
 
         </androidx.appcompat.widget.Toolbar>
 
@@ -118,7 +144,6 @@
         android:layout_gravity="center"
         android:layout_marginTop="50dp"
         android:onClick="deleteRat"/>
-
 
 
 

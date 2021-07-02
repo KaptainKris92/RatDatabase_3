@@ -96,6 +96,13 @@
 
     </TableRow>
 
+   <androidx.appcompat.widget.SearchView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:id="@+id/searchView"
+       app:iconifiedByDefault="false"
+       app:queryHint="Search"/>
+
     <ListView
         android:id="@+id/ratListView"
         android:layout_width="match_parent"

@@ -2,13 +2,14 @@ package com.example.ratdatabase3;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 
 public class Rat {
-
 
     public static final String TABLE_NAME = "rats";
 
     public static ArrayList<Rat> ratArrayList = new ArrayList<>();
+
     public static String RAT_EDIT_EXTRA = "ratEdit";
 
     private int id;

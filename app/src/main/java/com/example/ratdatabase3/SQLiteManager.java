@@ -6,6 +6,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -18,8 +20,8 @@ public class SQLiteManager extends SQLiteOpenHelper {
 
     private static SQLiteManager sqLiteManager;
     public static final String DATABASE_NAME = "RatDB";
-    private static final int DATABASE_VERSION = 3;
-    private static final String TABLE_NAME = "Rat3";
+    private static final int DATABASE_VERSION = 4;
+    private static final String TABLE_NAME = "RatTable";
     private static final String COUNTER = "Counter";
 
     private static final String ID_FIELD = "id";
@@ -30,7 +32,7 @@ public class SQLiteManager extends SQLiteOpenHelper {
     private static final String DELETED_FIELD = "deleted";
 
     @SuppressLint("SimpleDateFormat")
-    private static final DateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy HH:mm:ss");
+    private static final DateFormat dateFormat = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
 
 
     public SQLiteManager(@Nullable Context context) {
@@ -100,6 +102,8 @@ public class SQLiteManager extends SQLiteOpenHelper {
         contentValues.put(DELETED_FIELD, getStringFromDate(rat.getDeleted()));
 
         sqLiteDatabase.insert(TABLE_NAME, null, contentValues);
+
+        sqLiteDatabase.close();
     }
 
     public void populateRatListArray()
@@ -156,6 +160,18 @@ public class SQLiteManager extends SQLiteOpenHelper {
 
     }
 
-
+//    public void nextRat() {
+//        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
+//        Cursor c = sqLiteDatabase.rawQuery("SELECT * FROM " + TABLE_NAME, null);
+//        while (c.moveToNext())
+//        {
+//        int id = c.getInt(1);
+//        String subject = c.getString(2);
+//        String weight = c.getString(3);
+//        String notes = c.getString(4);
+//        String added = c.getString(5);
+//        String stringDeleted = c.getString(6);
+//        }
+//    }
 
 }
