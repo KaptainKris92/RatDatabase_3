@@ -1,5 +1,7 @@
 package com.example.ratdatabase3;
 
+import android.content.Context;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -53,13 +55,18 @@ public class Rat {
     public static ArrayList<Rat> nonDeletedRats()
     {
         ArrayList<Rat> nonDeleted = new ArrayList<>();
+        int nonDeletedCount = nonDeleted.size();
+
         for (Rat rat : ratArrayList)
         {
             if(rat.getDeleted() == null)
                 nonDeleted.add(rat);
         }
         return nonDeleted;
+
     }
+
+
 
 
     public int getId() {

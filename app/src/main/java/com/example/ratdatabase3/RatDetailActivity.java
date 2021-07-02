@@ -14,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
@@ -35,6 +36,8 @@ public class RatDetailActivity extends AppCompatActivity {
         initWidgets();
         checkForEditRat();
     }
+
+
 
     private void initWidgets() {
         subjectEditText = findViewById(R.id.subjectEditText);
@@ -59,28 +62,43 @@ public class RatDetailActivity extends AppCompatActivity {
             deleteButton.setVisibility(View.INVISIBLE);
         }
 
+        SQLiteManager sqLiteManager = SQLiteManager.instanceOfDatabase(this);
+        long ratCount = sqLiteManager.getRatCount();
+
+
+
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int passedRatIDNew = passedRatID + 1;
-                Rat selectedRatNext = Rat.getRatForId(passedRatIDNew);
-                Intent editRatIntent = new Intent(getApplicationContext(), RatDetailActivity.class);
-                editRatIntent.putExtra(Rat.RAT_EDIT_EXTRA, selectedRatNext.getId());
-                startActivity(editRatIntent);
-                finish();
+                if (passedRatID < (ratCount-1)) {
+                    int passedRatIDNext = passedRatID + 1;
+                    Rat selectedRatNext = Rat.getRatForId(passedRatIDNext);
+                    Intent editRatIntent = new Intent(getApplicationContext(), RatDetailActivity.class);
+                    editRatIntent.putExtra(Rat.RAT_EDIT_EXTRA, selectedRatNext.getId());
+                    startActivity(editRatIntent);
+                    finish();
+                } else {
+                    Toast.makeText(RatDetailActivity.this, "No more entries this way", Toast.LENGTH_LONG).show();
 
+                }
             }
         });
+
+        int nonDeletedCount = Rat.nonDeletedRats().size();
 
         previousButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int passedRatIDNew = passedRatID - 1;
-                Rat selectedRatNext = Rat.getRatForId(passedRatIDNew);
-                Intent editRatIntent = new Intent(getApplicationContext(), RatDetailActivity.class);
-                editRatIntent.putExtra(Rat.RAT_EDIT_EXTRA, selectedRatNext.getId());
-                startActivity(editRatIntent);
-                finish();
+                if (passedRatID > (ratCount - nonDeletedCount)) {
+                    int passedRatIDPrev = passedRatID - 1;
+                    Rat selectedRatPrev = Rat.getRatForId(passedRatIDPrev);
+                    Intent editRatIntent = new Intent(getApplicationContext(), RatDetailActivity.class);
+                    editRatIntent.putExtra(Rat.RAT_EDIT_EXTRA, selectedRatPrev.getId());
+                    startActivity(editRatIntent);
+                    finish();
+                }else {
+                    Toast.makeText(RatDetailActivity.this, "No more entries this way", Toast.LENGTH_LONG).show();
+                }
             }
         });
 

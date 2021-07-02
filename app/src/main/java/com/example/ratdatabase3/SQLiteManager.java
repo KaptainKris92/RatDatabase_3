@@ -4,10 +4,9 @@ import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.view.View;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -20,7 +19,7 @@ public class SQLiteManager extends SQLiteOpenHelper {
 
     private static SQLiteManager sqLiteManager;
     public static final String DATABASE_NAME = "RatDB";
-    private static final int DATABASE_VERSION = 4;
+    public static final int DATABASE_VERSION = 4;
     private static final String TABLE_NAME = "RatTable";
     private static final String COUNTER = "Counter";
 
@@ -160,18 +159,13 @@ public class SQLiteManager extends SQLiteOpenHelper {
 
     }
 
-//    public void nextRat() {
-//        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
-//        Cursor c = sqLiteDatabase.rawQuery("SELECT * FROM " + TABLE_NAME, null);
-//        while (c.moveToNext())
-//        {
-//        int id = c.getInt(1);
-//        String subject = c.getString(2);
-//        String weight = c.getString(3);
-//        String notes = c.getString(4);
-//        String added = c.getString(5);
-//        String stringDeleted = c.getString(6);
-//        }
-//    }
+    public long getRatCount(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        long count = DatabaseUtils.queryNumEntries(db, TABLE_NAME);
+        db.close();
+        return count;
+    }
+
+
 
 }
